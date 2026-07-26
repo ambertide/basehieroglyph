@@ -1,6 +1,6 @@
 import {expect, test} from '@jest/globals';
 
-import { uint8toUint10 } from '../uint8ToUint10';
+import { uint8toUint10 } from '../../internals/uint8ToUint10';
 
 test('Check conversion from 8 bit unsigned array to 10 bit unsigned array', () => {
   const testCase = new Uint8Array([63, 61, 74]);
