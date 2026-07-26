@@ -8,8 +8,8 @@
     "build": "tsc"
   },
   "keywords": [],
-  "author": "",
-  "license": "MIT",
+  "author": "Ege özkan",
+  "license": "GPL-3.0-only",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
