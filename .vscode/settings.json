@@ -3,4 +3,5 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
     },
+    "jest.jestCommandLine": "pnpm run test"
 }
