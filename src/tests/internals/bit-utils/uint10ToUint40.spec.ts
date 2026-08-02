@@ -16,7 +16,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-export { getRightMostNBits } from './getRightMostNBits';
-export { uint8toUint10 } from './uint8ToUint10';
-export { uint8toUint40 } from './uint8toUint40';
-export { uint10ToUint40 } from './uint10ToUint40';
+import {expect, test} from '@jest/globals';
+
+import { uint10ToUint40 } from '../../../internals/bit-utils';
+
+test.each([
+  [[0x2AA, 0x3BC, 0x337, 0x1EE, 0x3FC, 0x00, 0x0, 0x0], [0xAABBCCDDEE, 0xFF00000000]],
+  [[0x2AA, 0x3BC, 0x300, 0x000], [0xAABBCC0000]]
+])('uint10[] (%s) -> uint40[] (%s)', (testCase, expected) => {
+  expect(uint10ToUint40(testCase)).toEqual(expected);
+});
