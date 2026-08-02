@@ -16,6 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import { stringToHieroglyphIndexes } from './internals';
+import { uint10ToUint40, uint40ToUint8 } from './internals/bit-utils';
+
 export const decode = (encodedString: string): string => {
-  return encodedString;
+  const u10Indexes = stringToHieroglyphIndexes(encodedString);
+  const u8Codepoints = uint40ToUint8(uint10ToUint40(u10Indexes));
+  return new TextDecoder().decode(new Uint8Array(u8Codepoints));
 };

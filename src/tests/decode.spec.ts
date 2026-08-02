@@ -21,10 +21,10 @@ import {expect, test} from '@jest/globals';
 import { decode } from '../decode';
 
 test.each([
-  ['𓆍𓈗𓀄', 'cat'],
+  ['𓆍𓈗𓄀𓀀', 'cat'],
   ['𓇑𓉗𓃝𓀀', 'test'],
-  ['𓆄𓈇𓃚𓅧𓆹𓊖𓆚𓅣𓆅𓋧𓄛𓁹𓂁𓋆𓏛𓉧𓆕𓌢𓀝𓁥𓇡𓀴', 'a significantly longer text'],
-  ['𓌖𓇼𓃭𓉭𓆔𓈇𓄙𓅸𓇐𓈇𓇱𓂱𓇑𓊂𓀛𓋃𓋙𓋢𓍛𓁡𓇓𓁋𓁛𓈠𓌎𓉶𓁜𓉡𓌒𓇷𓄙𓅲𓌖𓀟', 'şöme text wıth nön-latın çarağterş']
+  ['𓆄𓈇𓃚𓅧𓆹𓊖𓆚𓅣𓆅𓋧𓄛𓁹𓂁𓋆𓏛𓉧𓆕𓌢𓀝𓁥𓇡𓍀𓀀𓀀', 'a significantly longer text'],
+  ['𓌖𓇼𓃭𓉭𓆔𓈇𓄙𓅸𓇐𓈇𓇱𓂱𓇑𓊂𓀛𓋃𓋙𓋢𓍛𓁡𓇓𓁋𓁛𓈠𓌎𓉶𓁜𓉡𓌒𓇷𓄙𓅲𓌖𓇰𓀀𓀀', 'şöme text wıth nön-latın çarağterş']
 ])('decode(%s) -> %s', (cypher, plain) => {
   expect(decode(cypher)).toBe(plain);
 });
