@@ -21,6 +21,6 @@ import {expect, test} from '@jest/globals';
 import { uint8toUint10 } from '../../internals/uint8ToUint10';
 
 test('Check conversion from 8 bit unsigned array to 10 bit unsigned array', () => {
-  const testCase = new Uint8Array([63, 61, 74]);
-  expect(uint8toUint10(testCase)).toBe([393, 535, 8]);
+  const testCase = new Uint8Array([0xAA, 0xBB, 0xCC]);
+  expect(uint8toUint10(testCase)).toEqual([0x2AA, 0x3BC, 0xC]);
 });
