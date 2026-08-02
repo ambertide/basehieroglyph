@@ -1,3 +1,7 @@
+# `@ambertide/basehieroglyph`
+
+A Base1024 text encoding library... with hieroglyphs!
+
 ## Testimonials
 
 > 𓂋𓐍𓏜𓆑𓋴𓐍𓂋𓏜𓇋𓋴𓊪𓅱𓄤𓆑𓂋 👍
@@ -54,7 +58,7 @@ on u40[] conversions.
 
 It doesn't, I manually convert them.
 
-### Jesus Christ...
+### Jesus Christ...
 
 Yeah...
 
