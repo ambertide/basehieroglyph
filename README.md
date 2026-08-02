@@ -1,6 +1,10 @@
 # `@ambertide/basehieroglyph`
 
-A Base1024 text encoding library... with hieroglyphs!
+![NPM Version](https://img.shields.io/npm/v/%40ambertide%2Fbasehieroglyph)
+![GitHub License](https://img.shields.io/github/license/ambertide/basehieroglyph)
+
+
+A Base1024 text encoding library... with hieroglyphs! Here is a [demo](https://codepen.io/ambertide/pen/azpPYMo)
 
 ## Testimonials
 
