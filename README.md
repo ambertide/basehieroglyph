@@ -40,7 +40,7 @@ to 1024... hieroglyphs, a hierostring, if you will.
 ...Time on this? You bet I did! I am perfectly capable of producing slop on my
 own.
 
-### But... this has tests and... YOU SPENT ACTUAL FREE TIME FOR THIS?
+### But... this has tests and... YOU SPENT ACTUAL FREE TIME FOR THIS?
 
 Oh yes, I am actually quite proud of the way conversion works, essentially:
 
