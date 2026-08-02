@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * @param uint8ts An array of unsigned 8 bit integers.
  * @returns Uint40[] of the same memory
  */
-export const uint8toUint40 = (uint8ts: Uint8Array) => (
+export const uint8toUint40 = (uint8ts: Uint8Array) =>
   uint8ts.reduce(
     (accum, byte, index) => {
       if (index % 5 === 0) {
@@ -39,9 +39,16 @@ export const uint8toUint40 = (uint8ts: Uint8Array) => (
         accum[0] = accum[0] << BigInt(8);
         accum[0] = accum[0] | BigInt(byte);
       }
+      const isLastByte = index === (uint8ts.length - 1);
+      if (isLastByte && ((index + 1) % 5 !== 0)) {
+        // Pad the last byte with zeroes so it can be
+        // safely converted back.
+        const remainingBytesInThe40BitBitstring = 5 - ((index + 1) % 5);
+        const remainingBitsInThe40BitBitstring = 8n * BigInt(remainingBytesInThe40BitBitstring);
+        accum[0] = accum[0] << remainingBitsInThe40BitBitstring;
+      }
       return accum;
     },
     [] as bigint[]
   ).reverse()
-    .map(Number)
-);
+    .map(Number);

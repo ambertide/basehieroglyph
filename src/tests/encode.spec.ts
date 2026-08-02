@@ -21,10 +21,10 @@ import {expect, test} from '@jest/globals';
 import { encode } from '../encode';
 
 test.each([
-  ['cat', '𓆍𓈗𓀄'],
+  ['cat', '𓆍𓈗𓄀𓀀'],
   ['test', '𓇑𓉗𓃝𓀀'],
-  ['a significantly longer text', '𓆄𓈇𓃚𓅧𓆹𓊖𓆚𓅣𓆅𓋧𓄛𓁹𓂁𓋆𓏛𓉧𓆕𓌢𓀝𓁥𓇡𓀴'],
-  ['şöme text wıth nön-latın çarağterş', '𓌖𓇼𓃭𓉭𓆔𓈇𓄙𓅸𓇐𓈇𓇱𓂱𓇑𓊂𓀛𓋃𓋙𓋢𓍛𓁡𓇓𓁋𓁛𓈠𓌎𓉶𓁜𓉡𓌒𓇷𓄙𓅲𓌖𓀟']
+  ['a significantly longer text', '𓆄𓈇𓃚𓅧𓆹𓊖𓆚𓅣𓆅𓋧𓄛𓁹𓂁𓋆𓏛𓉧𓆕𓌢𓀝𓁥𓇡𓍀𓀀𓀀'],
+  ['şöme text wıth nön-latın çarağterş', '𓌖𓇼𓃭𓉭𓆔𓈇𓄙𓅸𓇐𓈇𓇱𓂱𓇑𓊂𓀛𓋃𓋙𓋢𓍛𓁡𓇓𓁋𓁛𓈠𓌎𓉶𓁜𓉡𓌒𓇷𓄙𓅲𓌖𓇰𓀀𓀀']
 ])('encode(%s) = %s', async (plain, cypher) => {
   expect(await encode(plain)).toBe(cypher);
 });
