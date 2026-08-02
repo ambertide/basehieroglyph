@@ -18,9 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { hieroglpyhFromIndex, uint8toUint10 } from './internals';
 
-export const encode = async (stringToEncode: string): Promise<string> => {
-  const blob = new Blob([stringToEncode]);
-  const individualBytes = new Uint8Array(await blob.arrayBuffer());
+export const encode = (stringToEncode: string): string => {
+  const individualBytes = new TextEncoder().encode(stringToEncode);
   const uint10ts = uint8toUint10(individualBytes);
   const hieroglyphs = uint10ts.map(index => hieroglpyhFromIndex(index));
   return hieroglyphs.join('');
