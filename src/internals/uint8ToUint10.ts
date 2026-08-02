@@ -72,7 +72,7 @@ export const uint8toUint10 = (uint8ts: Uint8Array): number[] => {
     tailSize && index === uint40ts.length - 1
       ? processTail(uint40t, tailSize)
       : [
-        (uint40t >>> 30) & 0b11_1111_1111,
+        Number((BigInt(uint40t) >> 30n)) & 0b11_1111_1111,
         (uint40t >>> 20) & 0b11_1111_1111,
         (uint40t >>> 10) & 0b11_1111_1111,
         uint40t & 0b11_1111_1111
