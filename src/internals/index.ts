@@ -16,6 +16,5 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-export { encode } from './encode';
-export { decode } from './decode';
-export { HieroglyphIndexError } from './internals';
+export { uint8toUint10 } from './bit-utils';
+export { hieroglpyhFromIndex, HieroglyphIndexError} from './hieroglyph-utils';

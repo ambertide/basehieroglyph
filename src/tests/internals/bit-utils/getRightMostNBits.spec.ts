@@ -18,14 +18,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {expect, test} from '@jest/globals';
 
-import { uint8toUint10 } from '../../internals/uint8ToUint10';
+import { getRightMostNBits } from '../../../internals/bit-utils';
 
 test.each([
-  [[0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF], [0x2AA, 0x3BC, 0x337, 0x1EE, 0xFF]],
-  [[0xAA, 0xBB, 0xCC], [0x2AA, 0x3BC, 0xC]],
-  [[0xBB, 0xCC], [0x2EF, 0x0C]],
-  [[0xCC], [0xCC]]
-])('uint8[] (%s) -> uint10[] (%s)', (input, expected) => {
-  const testCase = new Uint8Array(input);
-  expect(uint8toUint10(testCase)).toEqual(expected);
+  [0b1011101, 3, 0b101],
+  [0b0000000000, 5, 0b00000],
+  [0b11111111, 2, 0b11],
+  [0b1, 1, 0b1]
+])('getRightMostNBits(%i, %i) = %i', (bits, nBits, expected) => {
+  expect(getRightMostNBits(bits, nBits)).toBe(expected);
 });

@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {expect, test} from '@jest/globals';
 
-import { uint8toUint40 } from '../../internals/uint8toUint40';
+import { uint8toUint40 } from '../../../internals/bit-utils';
 
 test.each([
   [[0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF], [0xAABBCCDDEE, 0xFF]],

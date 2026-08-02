@@ -18,8 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import {expect, test} from '@jest/globals';
 
-import { hieroglpyhFromIndex } from '../../internals/hieroglpyhFromIndex';
-import { HieroglyphIndexError } from '../../internals/HieroglpyhIndexError';
+import { hieroglpyhFromIndex, HieroglyphIndexError } from '../../../internals/hieroglyph-utils';
 
 test.each([
   [0, '𓀀'],
