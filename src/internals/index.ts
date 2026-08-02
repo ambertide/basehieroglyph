@@ -17,4 +17,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 export { uint8toUint10 } from './bit-utils';
-export { hieroglpyhFromIndex, HieroglyphIndexError} from './hieroglyph-utils';
+export { hieroglpyhFromIndex, HieroglyphIndexError, stringToHieroglyphIndexes} from './hieroglyph-utils';

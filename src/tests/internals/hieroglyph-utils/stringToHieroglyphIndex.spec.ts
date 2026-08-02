@@ -16,6 +16,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-export { HieroglyphIndexError } from './HieroglpyhIndexError';
-export { hieroglpyhFromIndex } from './hieroglpyhFromIndex';
-export { stringToHieroglyphIndexes } from './stringToHieroglyphIndexes';
+import {expect, test} from '@jest/globals';
+
+import { stringToHieroglyphIndexes } from '../../../internals/hieroglyph-utils';
+
+test.each([
+  ['𓀀𓏿', [0x0, 0x3FF]],
+])('stringToHieroglyphIndexes(%s) = %p', (hierostring, indexArray) => {
+  expect(stringToHieroglyphIndexes(hierostring)).toEqual(indexArray);
+});

@@ -16,6 +16,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-export { HieroglyphIndexError } from './HieroglpyhIndexError';
-export { hieroglpyhFromIndex } from './hieroglpyhFromIndex';
-export { stringToHieroglyphIndexes } from './stringToHieroglyphIndexes';
+import { HieroglyphIndexError } from './HieroglpyhIndexError';
+
+export const stringToHieroglyphIndexes = (hieroglpyhString: string): number[] => {
+  const codePoints = Array.from(hieroglpyhString)
+    .map(hierostring => hierostring.codePointAt(0));
+  if (codePoints.some(codePoint => typeof codePoint === 'undefined' || codePoint < 0x13000 || codePoint > (0x13000 + 0x3FF))) {
+    throw new HieroglyphIndexError('Invalid hierostring.');
+  }
+  return (codePoints as number[]).map(codePoint => codePoint - 0x13000);
+};
