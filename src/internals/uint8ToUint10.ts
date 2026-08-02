@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import { getRightMostNBits } from './getRightMostNBits';
 import { uint8toUint40 } from './uint8toUint40';
 
 /**
@@ -33,10 +34,21 @@ import { uint8toUint40 } from './uint8toUint40';
  * @param tailSize Tail size.
  * @returns uint10t[]
  */
-const processTail = (uint40t: number, tailSize: number): number[] =>
-  [...new Array(tailSize).keys()]
+const processTail = (uint40t: number, tailSize: number): number[] => {
+  // Consider how many 10 bits we can take from left
+  // and how many bits from right is our  remainder.
+  const fullTenBitCount = (tailSize * 8) / 10;
+  const tailsTailSize = (tailSize * 8) % 10;
+  const tailsTail = getRightMostNBits(uint40t, tailsTailSize);
+  const fullTenBitParts = [...new Array(Math.floor(fullTenBitCount)).keys()]
     .reverse()
-    .map(i => (uint40t >>> i) & 0b11_1111_1111);
+    .map(shiftIndex => getRightMostNBits(
+      uint40t >>> (tailsTailSize + shiftIndex * 10),
+      10
+    ));
+  return [...fullTenBitParts, tailsTail];
+};
+
 
 /**
  * Convert an array of unsigned 8 bit numbers to an array
