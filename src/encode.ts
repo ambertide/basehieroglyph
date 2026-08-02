@@ -16,6 +16,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-export const encode = (stringToEncode: string): string => {
-  return stringToEncode;
+import { hieroglpyhFromIndex } from './internals/hieroglpyhFromIndex';
+import { uint8toUint10 } from './internals/uint8ToUint10';
+
+export const encode = async (stringToEncode: string): Promise<string> => {
+  const blob = new Blob([stringToEncode]);
+  const individualBytes = new Uint8Array(await blob.arrayBuffer());
+  const uint10ts = uint8toUint10(individualBytes);
+  const hieroglyphs = uint10ts.map(index => hieroglpyhFromIndex(index));
+  return hieroglyphs.join('');
 };
