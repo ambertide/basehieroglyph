@@ -1,8 +1,8 @@
 {
   "name": "@ambertide/basehieroglyph",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Base1024 Text Encoder with Hieroglyphs",
+  "main": "dist/index.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "build": "tsc",
